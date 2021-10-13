@@ -1,0 +1,42 @@
+# Hourly scraping
+name: PlayerShootingScraper
+
+# Controls when the action will run.
+on:
+  push:
+    branches: main
+
+jobs:
+  autoscrape:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Load repo and install R
+    steps:
+    - uses: actions/checkout@master
+    - uses: r-lib/actions/setup-r@master
+
+    # Set-up R
+    - name: Install R packages
+      run: |
+        R -e 'install.packages("tidyverse")'
+        R -e 'install.packages("rvest")'
+        R -e 'install.packages("jsonlite")'
+        R -e 'install.packages("httr")'
+        R -e 'install.packages("janitor")'
+        
+    # Run R script
+    - name: Scraper
+      run: PlayerShootingStlye.R
+
+    # Add new files in data folder, commit along with other modified files, push
+    - name: Commit files
+      run: |
+        git config --local user.name github-actions
+        git config --local user.email "actions@github.com"
+        git add data/*
+        git commit -am "GH ACTION Autorun $(date)"
+        git push origin main
+      env:
+        REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+        username: github-actions
