@@ -27,7 +27,7 @@ jobs:
         
     # Run R script
     - name: g-league Scraper
-      run: player_shooting_style.R
+      run: Rscript player_shooting_style.R
 
     # Add new files in data folder, commit along with other modified files, push
     - name: Commit files
@@ -39,3 +39,6 @@ jobs:
       env:
         REPO_KEY: ${{secrets.GITHUB_TOKEN}}
         username: github-actions
+
+
+
