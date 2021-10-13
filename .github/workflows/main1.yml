@@ -4,12 +4,12 @@ name: player_shooting_style_scraper
 # Controls when the action will run.
 on:
   push:
-    branches: branch
+    branches: main
 
 jobs:
   g_legue_scrape:
     # The type of runner that the job will run on
-    runs-on: macos-latest
+    runs-on: Ubuntu
 
     # Load repo and install R
     steps:
