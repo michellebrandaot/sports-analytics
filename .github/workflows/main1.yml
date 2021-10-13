@@ -9,7 +9,7 @@ on:
 jobs:
   g_legue_scrape:
     # The type of runner that the job will run on
-    runs-on: Ubuntu
+    runs-on: ubuntu-latest
 
     # Load repo and install R
     steps:
