@@ -1,5 +1,5 @@
 # Hourly scraping
-name: PlayerShootingScraper
+name: player_shooting_style_scraper
 
 # Controls when the action will run.
 on:
@@ -7,7 +7,7 @@ on:
     branches: main
 
 jobs:
-  autoscrape:
+  g_legue_scrape:
     # The type of runner that the job will run on
     runs-on: macos-latest
 
