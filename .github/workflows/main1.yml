@@ -4,7 +4,7 @@ name: player_shooting_style_scraper
 # Controls when the action will run.
 on:
   push:
-    branches: main
+    branches: branch
 
 jobs:
   g_legue_scrape:
